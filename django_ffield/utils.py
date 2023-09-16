@@ -1,8 +1,8 @@
 from io import FileIO
-
+from django.db.models.fields.files import FieldFile
 from magic import from_buffer
 
-def meme_type(file:FileIO) -> tuple[str, str]:
+def meme_type(file:FileIO|FieldFile) -> tuple[str, str]:
     """detect meme type of file by reading the first 2048 bytes of file
 
     Parameters
