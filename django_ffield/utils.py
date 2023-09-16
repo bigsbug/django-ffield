@@ -1,0 +1,20 @@
+from io import FileIO
+
+from magic import from_buffer
+
+def meme_type(file:FileIO) -> tuple[str, str]:
+    """detect meme type of file by reading the first 2048 bytes of file
+
+    Parameters
+    ----------
+    file : FileIO
+        file you want to detect meme type of it
+
+    Returns
+    -------
+    tuple[str, str]
+        type and subtype of file for example ("Image","Png")
+    """
+
+    typ, subtyp = from_buffer(file.read(2048), True).split('/')
+    return typ, subtyp

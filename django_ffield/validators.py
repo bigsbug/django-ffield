@@ -3,26 +3,7 @@ from io import FileIO
 from django.core.exceptions import ValidationError
 from django.utils.deconstruct import deconstructible
 
-from magic import from_buffer
-
-
-def meme_type(file:FileIO) -> tuple[str, str]:
-    """detect meme type of file by reading the first 2048 bytes of file
-
-    Parameters
-    ----------
-    file : FileIO
-        file you want to detect meme type of it
-
-    Returns
-    -------
-    tuple[str, str]
-        type and subtype of file for example ("Image","Png")
-    """
-
-    typ, subtyp = from_buffer(file.read(2048), True).split('/')
-    return typ, subtyp
-
+from django_ffield.utils import meme_type
 
 @deconstructible
 class FileTypeValidator:
