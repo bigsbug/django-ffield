@@ -18,7 +18,7 @@ class FiledFField(FieldFile):
         str
             mimetype : 'image/png'
         """
-        mime:str = from_buffer(self.read(2048),mime=True)
+        mime:str ='/'.join(meme_type(self)) 
         return mime
     
     @property
@@ -30,7 +30,7 @@ class FiledFField(FieldFile):
         str
             type of file
         """
-        return meme_type(self)[0] # type: ignore
+        return meme_type(self)[0] 
     
     @property
     def format(self) -> str:
@@ -41,7 +41,7 @@ class FiledFField(FieldFile):
         str
             the subtype of file
         """
-        return meme_type(self)[1] # type: ignore
+        return meme_type(self)[1]
     
 class FileFField(FileField):
     """This field can accept a list of 'types' as input,
