@@ -1,0 +1,31 @@
+[build-system]
+requires = ['setuptools>=61.0']
+build-backend="setuptools.build_meta"
+
+
+[project]
+name = "django-ffield"
+version = "0.0.1"
+authors = [{name="Ali Sadeghi Far",email="booxgitboox@gmail.com"}]
+description="A Django Field with extra contol over fields"
+readme = "readme.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Framework :: Django :: 3.0",
+    "Framework :: Django :: 3.1",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Topic :: Utilities",
+]
+[tool.setuptools.packages.find]
+include = ["django_ffield", "django_ffield.*"]
+namespaces = true
+
+[project.urls]
+"Homepage" = "https://github.com/bigsbug/django-ffield"
+"Bug Tracker" = "https://github.com/bigsbug/django-ffield/issues"
