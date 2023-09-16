@@ -16,14 +16,14 @@ class FiledFField(FieldFile):
         Returns
         -------
         str
-            mimetype : 'image/png'
+            mimetype : `'image/png'`
         """
         mime:str ='/'.join(meme_type(self)) 
         return mime
     
     @property
     def type(self) -> str:
-        """return the type of file for example : Video,Image,...
+        """return the type of file for example : `Video,Image,...`
 
         Returns
         -------
@@ -34,7 +34,7 @@ class FiledFField(FieldFile):
     
     @property
     def format(self) -> str:
-        """return subtype of file or extention like png,mp4,pdf,...
+        """return subtype of file or extention like `png,mp4,pdf,...`
 
         Returns
         -------
@@ -44,7 +44,7 @@ class FiledFField(FieldFile):
         return meme_type(self)[1]
     
 class FileFField(FileField):
-    """This field can accept a list of 'types' as input,
+    """This field can accept a list of `types` as input,
     allowing the user to pass only these specific types to the field.
 
     Parameters

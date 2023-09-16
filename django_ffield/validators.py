@@ -17,7 +17,7 @@ class FileTypeValidator:
         types : list[str]
             types and sub-types that allowd file be
             example :
-                ["Image","PDF","mp4",...]
+                `["image","pdf","mp4",...]`
         """
         self.types = list(map(str.lower, set(types)))
 

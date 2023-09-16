@@ -3,7 +3,7 @@ from django.db.models.fields.files import FieldFile
 from magic import from_buffer
 
 def meme_type(file:FileIO|FieldFile) -> tuple[str, str]:
-    """detect meme type of file by reading the first 2048 bytes of file
+    """detect meme type of file by reading the first `2048 bytes` of file
 
     Parameters
     ----------
@@ -13,7 +13,7 @@ def meme_type(file:FileIO|FieldFile) -> tuple[str, str]:
     Returns
     -------
     tuple[str, str]
-        type and subtype of file for example ("Image","Png")
+        type and subtype of file for example `("Image","png")`
     """
 
     typ, subtyp = from_buffer(file.read(2048), True).split('/')
