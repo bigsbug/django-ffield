@@ -1,9 +1,9 @@
 from typing import Any
 from django.db.models.base import Model
 from django.db.models.fields.files import FieldFile, FileField
-from django_ffield.validators import FileTypeValidator,meme_type
+from django_ffield.validators import FileTypeValidator
+from django_ffield.utils import meme_type
 
-from magic import from_buffer
 
 class FiledFField(FieldFile):
     def __init__(self, instance: Model, field: FileField, name: str | None) -> None:
