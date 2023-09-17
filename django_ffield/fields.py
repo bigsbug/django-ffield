@@ -57,13 +57,13 @@ class FileFField(FileField):
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         self.allowd_types: list[str] = kwargs.pop("allowd_types", [])
-        self.disallowd_types: list[str] = kwargs.pop("disallowd_types", [])
+        self.disallowed_types: list[str] = kwargs.pop("disallowed_types", [])
         super().__init__(*args, **kwargs)
 
-        if self.allowd_types or self.disallowd_types:
+        if self.allowd_types or self.disallowed_types:
             self.validators.append(
                 FileTypeValidator(allowd_types=self.allowd_types,
-                                  disallowd_types=self.disallowd_types,)
+                                  disallowed_types=self.disallowed_types,)
             )
 
     attr_class = FiledFField
