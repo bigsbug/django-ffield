@@ -44,8 +44,9 @@ class FiledFField(FieldFile):
         return meme_type(self)[1]
     
 class FileFField(FileField):
-    """This field can accept a list of `allowd_types` as input,
-    allowing the user to pass only these specific allowd_types to the field.
+    """This field can accept a list of `allowd_types` as and `disallowd_types` input,
+    allowing the user to pass only these specific allowd_types to the field,
+    and don't allowd pass disallowd types to the filed.
 
     Parameters
     ----------
@@ -55,9 +56,13 @@ class FileFField(FileField):
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         self.allowd_types: list[str] = kwargs.pop("allowd_types",[])
+        self.disallowd_types: list[str] = kwargs.pop("disallowd_types",[])
         super().__init__(*args, **kwargs)
         
-        if self.allowd_types :
-            self.validators.append(FileTypeValidator(allowd_types=self.allowd_types))
+        if self.allowd_types or self.disallowd_types:
+            self.validators.append(
+                FileTypeValidator(allowd_types=self.allowd_types,
+                                  disallowd_types=self.disallowd_types,)
+                )
         
     attr_class = FiledFField
