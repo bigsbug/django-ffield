@@ -8,7 +8,7 @@ def meme_type(file:FileIO|FieldFile) -> tuple[str, str]:
     Parameters
     ----------
     file : FileIO
-        file you want to detect meme type of it
+        file you want to detect meme type of it in `rb` mode
 
     Returns
     -------
