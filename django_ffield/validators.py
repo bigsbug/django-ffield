@@ -44,11 +44,11 @@ class FileTypeValidator:
         typ, formt = meme_type(file)
         
         # * to prevent forbidden upload files by user
-        if typ not in self.allowd_types and formt not in self.allowd_types:
+        if self.allowd_types  and  typ not in self.allowd_types and formt not in self.allowd_types:
             raise ValidationError(
                 f"Unsupported Format: The {formt} type is not in allowd supported formats. Supported formats: {self.allowd_types}. Unsupported formats: {self.disallowed_types}. "
             )
-        elif typ in self.disallowed_types or formt in self.disallowed_types :
+        elif self.disallowed_types  and typ in self.disallowed_types or formt in self.disallowed_types :
             raise ValidationError(
                 f"Unsupported Format: The {formt} type is not supported formats. Unsupported formats: {self.disallowed_types}."
             )
